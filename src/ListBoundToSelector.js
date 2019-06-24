@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { updateItem } from "./store";
+import { updateItem, allIdsSelector } from "./store";
 
 let renders = 0;
 let updateIndex = 1;
@@ -32,7 +32,7 @@ export const ListItem = connect(
   null
 )(ListItemBase);
 
-function ListBoundToArrayBase({ allIds, updateItem }) {
+function ListBoundToSelectorBase({ allIdsSelector, updateItem }) {
   addRender("list");
   return (
     <div>
@@ -45,7 +45,7 @@ function ListBoundToArrayBase({ allIds, updateItem }) {
         do update
       </button>
       <ul>
-        {allIds.map(itemId => (
+        {allIdsSelector.map(itemId => (
           <ListItem key={itemId} id={itemId} />
         ))}
       </ul>
@@ -54,14 +54,14 @@ function ListBoundToArrayBase({ allIds, updateItem }) {
 }
 
 const mapStateToProps = state => ({
-  allIds: state.items.allIds
+  allIdsSelector: allIdsSelector(state)
 });
 
 const mapDispatchToProps = dispatch => ({
   updateItem: bindActionCreators(updateItem, dispatch)
 });
 
-export const ListBoundToArray = connect(
+export const ListBoundToSelector = connect(
   mapStateToProps,
   mapDispatchToProps
-)(ListBoundToArrayBase);
+)(ListBoundToSelectorBase);

@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import { exampleState } from "./store";
 import { ListBoundToMap } from "./ListBoundToMap";
 import { ListBoundToArray } from "./ListBoundToArray";
+import { ListBoundToSelector } from "./ListBoundToSelector";
 
 const store = createStore(
   exampleState,
@@ -15,7 +16,7 @@ function App() {
     <Provider store={store}>
       <div className="App">
         <span>
-          <ListBoundToArray />
+          <ListBoundToSelector />
         </span>
       </div>
     </Provider>

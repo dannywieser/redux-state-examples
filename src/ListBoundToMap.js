@@ -4,21 +4,21 @@ import { bindActionCreators } from "redux";
 import { updateItem } from "./store";
 
 let renders = 0;
-function addRender() {
+function addRender(source) {
   renders++;
-  console.log(`total renders: ${renders}`);
+  console.log(`total renders: ${renders} (${source})`);
 }
 
 let updateIndex = 1;
 
 const ListItem = ({ item }) => {
-  addRender();
+  addRender("item");
   const { value = "" } = item;
   return <li>{value}</li>;
 };
 
 function ListBoundToMapBase({ byId, updateItem }) {
-  addRender();
+  addRender("list");
   return (
     <div>
       <button
