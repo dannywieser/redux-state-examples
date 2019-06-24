@@ -18,9 +18,9 @@ The state is bound to a selector that returns only the item keys.
 
 # Results:
 
-ListBoundToMap: the list and all items are re-rendered each time any item in the map is updated
-ListBoundToArray: the list is rendered only once, as each item is updated it is rendered again
-ListBoundToSelector: the list is rendered every time the selector updates, but only the updated item is re-rendered.
+- ListBoundToMap: the list and all items are re-rendered each time any item in the map is updated
+- ListBoundToArray: the list is rendered only once, as each item is updated it is rendered again
+- ListBoundToSelector: the list is rendered every time the selector updates, but only the updated item is re-rendered.
 
 # Conclusion
 
